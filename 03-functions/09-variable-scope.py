@@ -1,1 +1,0 @@
-# global， nonlocal, local 三种scope
