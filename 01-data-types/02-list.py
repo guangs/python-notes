@@ -47,6 +47,10 @@ numbers = [1, 2, 3, 4, 5]
 squares = [number**2 for number in numbers]
 print(squares)
 
+# unpacking
+odd_numbers = [1, 3, 5]
+a, b, c = odd_numbers
+print(a, b, c)
 
 # unpacking with *
 odd_numbers = [1, 3, 5]
