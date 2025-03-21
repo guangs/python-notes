@@ -35,6 +35,7 @@ numbers.remove(10) # remove the first 10 from the array
 numbers.pop() # remove the last element from the array
 sorted(numbers) # return a new array, not change the original array
 reversed(numbers) # return an iterator, not change the original array
+numbers[::-1] # reverse sequence, return a new array, not change the original array
 numbers.index(5) # return the index of 10
 numbers.count(5) # return the count of 10
 numbers.reverse()   # reverse the array
