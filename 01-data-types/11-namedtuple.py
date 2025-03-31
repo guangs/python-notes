@@ -53,6 +53,10 @@ print_profile(*person_data)  # namedtupe和tuple, list 一样，也可以解包�
 person_data._asdict()  # {'name': 'James', 'age': 23, 'country': 'US'}
 
 
+# 从 dict 转成 namedtuple
+Person(**dict_data)  # 字典unpacking，解包赋值
+
+
 # 从 namedtuple 转成 tuple
 tuple(person_data) # ('James', 23, 'US')
 

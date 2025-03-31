@@ -71,6 +71,7 @@ queue = deque(['Alice', 'Bob', 'Charlie'], maxlen=10)
 queue.append('David')
 queue.popleft()
 queue.pop()
+del queue[1]
 print(queue)
 
 
@@ -88,7 +89,26 @@ print(numbers)
 
 
 
+# 通过基础UserList来实现一个List类Scores
 
+from collections import UserList
+
+
+class Scores(UserList):
+    def __getitem__(self, index):
+        return super().__getitem__(index)
+
+    def __setitem__(self, index, value):
+        super().__setitem__(index, value)
+    
+    def __delitem__(self, index):
+        super().__delitem__(index)
+
+s = Scores()
+s.append(1)
+s.append(2)
+s.pop()
+print(s)
 
 
 

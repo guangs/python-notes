@@ -4,7 +4,7 @@
 lang = input("What's the programming language you want to learn? ")
 
 match lang:
-    case "JavaScript":
+    case "JavaScript" ｜ "Typescript":
         print("You can become a web developer.")
 
     case "Python":
