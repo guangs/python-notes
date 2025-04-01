@@ -1,5 +1,7 @@
 # Python 语言本身没有抽象类，如果需要抽象类，需要第三方lib来实现
 
+# 抽象类的核心是“接口”，即定义一个抽象类，只包含抽象方法，不包含具体实现
+
 from abc import ABC, abstractmethod
 
 
