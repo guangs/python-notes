@@ -200,3 +200,77 @@ numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 even_numbers = {number for number in numbers if number % 2 == 0}
 print(even_numbers)
 print(type(even_numbers))
+
+
+
+
+# 几种sequence类型得到反序列的方法
+
+# 字符串str
+# 1. slice
+s = 'hello world'
+s_reversed = s[::-1] 
+print(s_reversed)
+
+# 2. reversed
+# reversed 返回的是一个迭代器，需要使用join方法将迭代器转换为字符串
+s_reversed = ''.join(reversed(s))
+print(s_reversed)
+
+
+
+
+# list
+# 1. slice
+l = [1, 2, 3, 4, 5]
+l_reversed = l[::-1]
+print(l_reversed)
+# 2. reversed
+# reversed 返回的是一个迭代器，需要使用list方法将迭代器转换为列表
+l_reversed = list(reversed(l))
+print(l_reversed)
+
+# 3. list.reverse() 方法
+# list.reverse() 方法会直接修改原列表
+
+
+
+# tuple
+# 1. slice
+t = (1, 2, 3, 4, 5)
+t_reversed = t[::-1]
+print(t_reversed)
+# 2. reversed
+# reversed 返回的是一个迭代器，需要使用tuple方法将迭代器转换为元组
+t_reversed = tuple(reversed(t))
+print(t_reversed)
+
+
+
+
+# array.array
+# 1. slice
+import array
+a = array.array('i', [1, 2, 3, 4, 5])
+a_reversed = a[::-1]
+print(a_reversed)
+
+# 2. reversed
+# reversed 返回的是一个迭代器，需要使用array方法将迭代器转换为数组
+a_reversed = array.array('i', reversed(a))
+print(a_reversed)
+# 3. array.reverse() 方法
+# array.reverse() 方法会直接修改原数组
+
+
+
+
+# collections.deque
+from collections import deque
+d = deque([1, 2, 3, 4, 5])
+# 1. reversed
+# reversed 返回的是一个迭代器，需要使用deque方法将迭代器转换为双端队列
+d_reversed = deque(reversed(d))
+print(d_reversed)
+# 2. deque.reverse() 方法
+# deque.reverse() 方法会直接修改原双端队列

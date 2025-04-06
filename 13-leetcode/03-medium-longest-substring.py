@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 
+# https://www.youtube.com/watch?v=FCbOzdHKW18&t=13s
+
 # Given a string s, find the length of the longest substring without duplicate characters.
 
  
@@ -22,6 +24,38 @@
 # Notice that the answer must be a substring, "pwke" is a subsequence and not a substring.
 
 
+
+# 我自己的实现，时间复杂度O(n^2)
+def solution(s: str) -> int:
+    max_len = 0
+    c_set = set()
+    for left_index in range(len(s)):
+        for right_index in range(left_index, len(s)):
+            c = s[right_index]
+            if c not in c_set:
+                c_set.add(c)
+            else:
+                max_len = max(max_len, len(c_set))
+                c_set.clear()
+                break
+    return max_len
+
+# 优化后时间复杂度O(n)
+
+def solution(s: str) -> int:
+    longest = 0
+    l = 0
+    sett = set()
+    n = len(s)
+
+    for r in range(n):
+        while s[r] in sett:
+            sett.remove(s[l])
+            l += 1
+        sett.add(s[r])
+        longest = max(longest, r - l + 1)
+
+    return longest
 
 
 # 时间复杂度O(n^2)
