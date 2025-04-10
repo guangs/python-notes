@@ -1,5 +1,9 @@
 # https://leetcode.com/problems/maximum-subarray/description/
 
+# https://www.workat.tech/problem-solving/practice/largest-contiguous
+
+#  ./resources/04-medium-maximum-subarray.png
+
 # https://www.youtube.com/watch?v=hLPkqd60-28&t=222s
 
 

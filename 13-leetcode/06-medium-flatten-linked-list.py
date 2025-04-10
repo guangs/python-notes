@@ -1,5 +1,7 @@
 # https://www.workat.tech/problem-solving/practice/flatten-multi-level-linked-list
 
+# ./resources/06-medium-flatten-linked-list.png
+
 # https://www.youtube.com/watch?v=QWoX2-s8KLE
 
 class ListNode:
