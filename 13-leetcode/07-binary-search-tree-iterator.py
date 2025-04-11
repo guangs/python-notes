@@ -45,6 +45,74 @@ class BSTIterator:
 
 
 
+class PreOrderIterator:
+
+	def __init__(self, root: Node, *args, **kwargs):
+		self.node = root
+		self.stack = []
+
+	# preorder traversal
+	def __iter__(self) -> Generator[Node]:
+		while self.stack or self.node:
+			if self.node:
+				yield self.node
+				self.stack.append(self.node)
+				self.node = self.node.left
+			else:
+				self.node = self.stack.pop()
+				self.node = self.node.right
+	
+	def __str__(self):
+		return str(self.node.data)
+
+
+class InOrderIterator:
+
+	def __init__(self, root: Node, *args, **kwargs):
+		self.node = root
+		self.stack = []
+
+	# inorder traversal
+	def __iter__(self) -> Generator[Node]:
+		while self.stack or self.node:
+			if self.node:
+				self.stack.append(self.node)
+				self.node = self.node.left
+			else:
+				self.node = self.stack.pop()
+				yield self.node
+				self.node = self.node.right
+	
+	def __str__(self):
+		return str(self.node.data)
+	
+
+class PostOrderIterator:
+
+	def __init__(self, root: Node, *args, **kwargs):
+		self.node = root
+		self.stack = []
+		self.visited = set()
+
+	# postorder traversal
+	def __iter__(self) -> Generator[Node]:
+		while self.stack or self.node:
+			if self.node:
+				self.visited.add(self.node)
+				self.stack.append(self.node)
+				if self.node.right:
+					self.stack.append(self.node.right)
+				self.node = self.node.left
+			else:
+				self.node = self.stack.pop()
+				if self.node in self.visited:
+					yield self.node
+					self.node = None
+	
+	def __str__(self):
+		return str(self.node.data)
+
+
 def preorder(node: Optional[Node]):
 	if node:
 		print(node.data)
@@ -178,9 +246,16 @@ root = n2
 
 # BSTIterator
 
-bst = BSTIterator(root)
+# bst = BSTIterator(root)
 
-while bst.hasNext():
-	n = bst.next()
+# while bst.hasNext():
+# 	n = bst.next()
+# 	print(n)
+
+postorder_iterative(root)
+
+print('-' * 10)
+
+bst2 = PostOrderIterator(root)
+for n in bst2:
 	print(n)
-
