@@ -4,7 +4,7 @@
 
 #  ./resources/004-medium-maximum-subarray.png
 
-# https://www.youtube.com/watch?v=hLPkqd60-28&t=222s
+# https://www.youtube.com/watch?v=hLPkqd60-28
 
 
 # Given an integer array nums, find the subarray with the largest sum, and return its sum.
@@ -28,18 +28,34 @@
 # Explanation: The subarray [5,4,-1,7,8] has the largest sum 23.
 
 
-
 def solution(nums: list[int]) -> int:
-
-    left = 0
     max_sum = nums[0]
-    current_sum = 0
-    n = len(nums)
+    cur_sum = 0
+    final_left = 0
+    final_right = 0
 
-    for right in range(0, n):
-        if current_sum < 0:
-            left = right
-            current_sum = 0
-        current_sum += nums[right]
-        max_sum = max(max_sum, current_sum)
+    for right, num in enumerate(nums):
+        if cur_sum < 0:
+            cur_sum = 0
+            final_left = right
+        cur_sum += num
+        if cur_sum > max_sum:
+            final_right = right
+        max_sum = max(max_sum, cur_sum)
+    print(final_left, final_right)
     return max_sum
+
+
+def solution2(nums: list[int]) -> int:
+    max_sum = float('-inf')
+    cur_sum = 0
+    for _, num in enumerate(nums):
+        cur_sum += num
+        max_sum = max(max_sum, cur_sum)
+        if cur_sum < 0:
+            cur_sum = 0
+    return max_sum
+
+
+res = solution2([-2,1,-3,4,-1,2,1,-5,4])
+print(res)
