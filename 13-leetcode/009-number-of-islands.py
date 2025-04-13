@@ -1,6 +1,6 @@
 # https://leetcode.com/problems/number-of-islands/description/
 # https://www.workat.tech/problem-solving/practice/number-of-islands
-# ./resources/number-of-islands.png
+# ./resources/009-number-of-islands.png
 # Medium
 
 # Problem:

@@ -1,6 +1,6 @@
 # https://www.workat.tech/problem-solving/practice/collect-jewels
 # Medium
-# ./resources/collect-jewels.png
+# ./resources/010-collect-jewels.png
 
 # leecode：0/1 Knapsack Problem
 # 

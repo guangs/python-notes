@@ -1,6 +1,6 @@
 # https://www.workat.tech/problem-solving/practice/longest-palindrome
 # Medium
-# ./resources/08-longest-palindrome-substring.png
+# ./resources/008-longest-palindrome-substring.png
 
 # https://leetcode.com/problems/longest-palindromic-substring/
 
