@@ -1,5 +1,5 @@
 # https://www.workat.tech/problem-solving/practice/binary-search-tree-iterator
-
+# Medium
 # ./resources/07-binary-search-tree-iterator.png
 
 

@@ -1,5 +1,5 @@
 # https://www.workat.tech/problem-solving/practice/implement-stack-array
-
+# Easy
 # ./resources/05-easy-implement-stack.png
 
 # Implement Stack using Array

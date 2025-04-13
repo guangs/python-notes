@@ -1,5 +1,7 @@
 # https://leetcode.com/problems/number-of-islands/description/
 # https://www.workat.tech/problem-solving/practice/number-of-islands
+# ./resources/number-of-islands.png
+# Medium
 
 # Problem:
 # Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.
