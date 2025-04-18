@@ -12,25 +12,6 @@ The await keyword pauses a coroutine.
 
 '''
 
-# When you add the async keyword to the function, the function becomes a coroutine:
-import asyncio
-
-async def square(number: int) -> int:
-    return number*number
-
-# 注意： await只能在async定义的coroutine里使用, 这点类似JS中async await
-async def main() -> None:
-    x = await square(10)
-    print(f'x={x}')
-
-    y = await square(5)
-    print(f'y={y}')
-
-    print(f'total={x+y}')
-
-# Python3.7+ asyncio.run() can automatically create an event loop, run a coroutine and close it
-# asyncio.run(main())
-
 
 
 # asyncio.create_task()
@@ -51,7 +32,7 @@ async def show_message():
         print('API call is in progress...')
 
 # if not use asyncio.create_task()
-async def main():
+async def main_coroutine():
     start = time.perf_counter()
 
     price = await call_api('Get stock price of GOOG...', 300)
@@ -65,7 +46,7 @@ async def main():
 
 
 # if use asyncio.create_task()
-async def main():
+async def main_task():
     start = time.perf_counter()
 
     task_1 = asyncio.create_task(
@@ -86,7 +67,7 @@ async def main():
     print(f'It took {round(end-start,0)} second(s) to complete.')
 
 # different tasks
-async def main():
+async def main_task2():
     start = time.perf_counter()
 
     message_task = asyncio.create_task(
@@ -112,7 +93,8 @@ async def main():
     end = time.perf_counter()
     print(f'It took {round(end-start,0)} second(s) to complete.')
 
-asyncio.run(main())
+asyncio.run(main_coroutine())
+asyncio.run(main_task())
 
 
 
@@ -120,7 +102,7 @@ asyncio.run(main())
 
 from asyncio import CancelledError
 
-async def main():
+async def main_task3():
     task = asyncio.create_task(
         call_api('Calling API...', result=2000, delay=5)
     )
@@ -141,7 +123,7 @@ async def main():
 
 # asyncio.wait_for(), wait for a coroutine to complete with a timeout
 
-async def main():
+async def main_wait_for():
     task = asyncio.create_task(
         call_api('Calling API...', result=2000, delay=5)
     )
@@ -152,12 +134,12 @@ async def main():
     except TimeoutError:
         print('The task was cancelled due to a timeout')
 
-# asyncio.run(main())
+# asyncio.run(main_wait_for())
 
 
 # asyncio.shield(), prevents the cancellation of a task
 
-async def main():
+async def main_shield():
     task = asyncio.create_task(
         call_api('Calling API...', result=2000, delay=5)
     )
@@ -170,7 +152,7 @@ async def main():
         result = await task
         print(result)
 
-# asyncio.run(main())
+# asyncio.run(main_shield())
 
 
 
