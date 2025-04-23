@@ -208,6 +208,43 @@ def levelorder(node: Optional[Node]):
 			if node.right:
 				queue.append(node.right)
 
+
+# 插入节点的函数
+def insert_into_bst(root, value):
+	if root is None:
+		# 如果当前节点为空，创建一个新节点
+	    return Node(value)
+	if value < root.value:
+		# 如果值小于当前节点，递归插入到左子树
+	    root.left = insert_into_bst(root.left, value)
+	elif value > root.value:
+		# 如果值大于当前节点，递归插入到右子树
+	    root.right = insert_into_bst(root.right, value)
+	return root
+
+
+# 插入节点的非递归函数
+def insert_into_bst2(root, value):
+	new_node = Node(value)
+	if root is None:
+		return new_node
+
+	current = root
+	while True:
+		if value < current.value:
+			if current.left is None:
+				current.left = new_node
+				return root
+			current = current.left
+		elif value > current.value:
+			if current.right is None:
+				current.right = new_node
+				return root
+			current = current.right
+		else:
+			return root
+
+
 # BST
 #  2 
 # 1 4 

@@ -2,6 +2,21 @@
 # Event用于threads之间的同步(协同)，比如 A线程做完了，然后notify B线程. 常用于不涉及资源的竞争，没有共享数据的情况
 # Lock用于threads之间的互斥，避免同时修改资源
 
+# concurrent.futures的类的继承关系
+# Executor (抽象基类)
+# ├── ThreadPoolExecutor
+# └── ProcessPoolExecutor
+
+# from concurrent.futures import ThreadPoolExecutor
+#
+# def task(n):
+#     print(f"Task {n} is running")
+#
+# with ThreadPoolExecutor(max_workers=3) as executor:
+#     for i in range(5):
+#         executor.submit(task, i)
+
+
 '''
 The Thread() accepts many parameters. The main ones are:
 

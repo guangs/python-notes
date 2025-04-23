@@ -95,6 +95,25 @@ Awaitable class has an abstract method __await__()
 Courtine, Future, and Task are subclasses of the Awaitable abstract class
 '''
 
+# import asyncio
+#
+# async def task1():
+#     print("Task 1: Start")
+#     await asyncio.sleep(1)
+#     print("Task 1: End")
+#
+# async def task2():
+#     print("Task 2: Start")
+#     await asyncio.sleep(2)
+#     print("Task 2: End")
+#
+# async def main():
+#     async with asyncio.TaskGroup() as tg:
+#         tg.create_task(task1())
+#         tg.create_task(task2())
+#     print("All tasks completed")
+#
+# asyncio.run(main())
 
 
 # coroutine
