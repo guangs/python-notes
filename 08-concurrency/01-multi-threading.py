@@ -1,6 +1,17 @@
 # Python thread并发这方面，推荐用ThreadPoolExecutor 代替自己创建thread
 # Event用于threads之间的同步(协同)，比如 A线程做完了，然后notify B线程. 常用于不涉及资源的竞争，没有共享数据的情况
 # Lock用于threads之间的互斥，避免同时修改资源
+# Lock和Event是最常用的两个工具，Semaphore也常用，Condition不常用。
+# Event，Semaphore和Condition都是基于Lock实现的
+# Condition是基于Lock和一个队列实现的
+# Event是基于Lock和Condition实现的
+# Semaphore是基于Lock和一个计数器实现的
+# | **工具**       | **使用频率** | **适用场景**                                   |
+# |----------------|--------------|---------------------------------------------|
+# | **`Lock`**     | 非常常用     | 保护共享资源，确保互斥访问。                   |
+# | **`Event`**    | 常用         | 协程之间的通知和协调。                         |
+# | **`Condition`**| 不常用       | 更复杂的同步机制，适合生产者-消费者模型等场景。 |
+# | **`Semaphore`**| 常用         | 限制并发协程的数量（如网络请求、任务池）。      |
 
 # concurrent.futures的类的继承关系
 # Executor (抽象基类)
